@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Place;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,14 @@ class PlaceController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        $data = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $place = Place::create($data);
+
+        $place->tags()->sync($request->tag_id);
+
         return back();
     }
 }

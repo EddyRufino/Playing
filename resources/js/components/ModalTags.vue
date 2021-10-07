@@ -39,10 +39,10 @@
 export default {
     props: ['showModal', 'tags'],
     methods: {
-        choosedTag(item) {
-            this.$emit('choosedTag', item);
+        choosedTag(tag) {
+            this.$emit('choosedTag', tag);
         }
-    }
+    },
 }
 </script>
 

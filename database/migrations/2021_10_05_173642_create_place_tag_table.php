@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTagPlaceTable extends Migration
+class CreatePlaceTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTagPlaceTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_place', function (Blueprint $table) {
+        Schema::create('place_tag', function (Blueprint $table) {
             $table->foreignId('tag_id')->constrained('tags');
             $table->foreignId('place_id')->constrained('places');
         });
@@ -26,6 +26,6 @@ class CreateTagPlaceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tag_place');
+        Schema::dropIfExists('place_tag');
     }
 }
